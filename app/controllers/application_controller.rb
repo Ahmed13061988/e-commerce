@@ -34,6 +34,5 @@ class ApplicationController < ActionController::API
             new_cart.save
             session[:cart_id] = new_cart.id
             cookies[:cart_id] = new_cart.id 
-   
     end
 end

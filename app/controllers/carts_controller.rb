@@ -1,12 +1,12 @@
 class CartsController < ApplicationController
     def add_item_to_cart
-        item = Item.find(params["item"]["id"]) if params["item"]["id"]
+        item = Item.find(params["item"]["id"]) if params["item"]["id"] # adding item to existing cart
         if cookies[:cart_id]
             if check_cart_cookie
                 current_cart.items << item 
                 current_cart.save
             end
-        else 
+        else #creating a new cart
             cart = Cart.create 
             session[:cart_id] = cart.id
             cookies[:cart_id] = cart.id
