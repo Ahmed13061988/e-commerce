@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
     def create 
         user = User.find_by(email: params[:user][:email])
      
-        if user.authenticate(params[:user][:password])
+        if user && user.authenticate(params[:user][:password])
             session[:user_id] = user.id
             session[:cart_id] = user.carts.last.id
             cookies[:cart_id] = current_cart.id

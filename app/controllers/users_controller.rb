@@ -2,6 +2,7 @@ class UsersController < ApplicationController
     def create 
         user = User.create(user_params)
         cart = Cart.create
+        byebug
         cart.user = user
         
         session[:user_id] = user.id

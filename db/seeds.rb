@@ -9,17 +9,17 @@
 
 
 Item.create(
-                name:"Sunglasses",
-                description:"The trendiest designs for your face.",
-                image:"https://source.unsplash.com/SYx3UCHZJlo/250x250",
-                price: 125
+                name:"God Of War",
+                description:"The Guy who killed all Gods.",
+                image:"https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/God_of_War_4_cover.jpg/220px-God_of_War_4_cover.jpg",
+                price: 35
             )
             
             Item.create(
-                name:"not",
-                description:"The trendiest designs for your face.",
-                image:"https://source.unsplash.com/SYx3UCHZJlo/250x250",
-                price: 125
+                name:"GTA",
+                description:"Guy who stole all the cars in Los Santos.",
+                image:"https://i.ytimg.com/vi/nSEqZPqSqC8/maxresdefault.jpg",
+                price: 10
             )
 
 
