@@ -18,9 +18,17 @@ Item.create(
             Item.create(
                 name:"GTA",
                 description:"Guy who stole all the cars in Los Santos.",
-                image:"https://i.ytimg.com/vi/nSEqZPqSqC8/maxresdefault.jpg",
+                image:"https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png",
                 price: 10
             )
+
+            Item.create(
+                name:"Dark Souls",
+                description:"Very hard Game.",
+                image:"https://images-na.ssl-images-amazon.com/images/I/91QuVskqO1L._SX425_.jpg",
+                price: 15
+            )
+
 
 
             # user_1 = User.create(

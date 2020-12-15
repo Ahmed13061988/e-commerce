@@ -2,12 +2,14 @@ class UsersController < ApplicationController
     def create 
         user = User.create(user_params)
         cart = Cart.create
-        byebug
+        
         cart.user = user
+    
         
         session[:user_id] = user.id
         session[:cart_id] = cart.id
         cookies[:cart_id] = cart.id
+        # byebug
         
         render json: {
           logged_in: true,
@@ -15,7 +17,7 @@ class UsersController < ApplicationController
           cart: {
             id: current_cart.id,
             items: current_cart.items,
-            total: current_cart_total
+            # total: current_cart_total
         }
         }
     end

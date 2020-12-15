@@ -6,7 +6,7 @@ class ApplicationController < ActionController::API
     end 
 
     def current_cart
-        current_cart ||= Cart.find(params[:cart_id]) if params[:cart_id]
+        current_cart = Cart.find(session[:cart_id]) if session[:cart_id] #
     end
 
     def check_session_cookie
@@ -16,19 +16,21 @@ class ApplicationController < ActionController::API
         true if cookie_session_id == session.id && cookie_user_id == current_user.id   
     end
 
-    # def check_cart_cookie(cart_id = nil)
-    #     # cart_id = cookies["cart_id"]
-    #     cart = Cart.find(cart_id)
-    #     true if cart.user.id.to_s == params[:user_id].to_s
+    def check_cart_cookie
+        cookie_cart_id = cookies["cart_id"]
+        
+        true if cookie_cart_id == session[:cart_id].to_s
+    end
+    
+
+    # def current_cart_total
+    #  # byebug
+    #   current_cart = Cart.find(params[:cart_id]) 
+    #   item_prices = current_cart.items.map { |i| i.price }
+    #   item_prices.reduce(0) { |sum, price| sum + price }
     # end
 
-    def current_cart_total
-        item_prices = current_cart.items.map { |i| i.price }
-        item_prices.reduce(0) { |sum, price| sum + price }
-    end
-
     def setup_new_cart
-     
             new_cart = Cart.create 
             new_cart.user = current_user if current_user
             new_cart.save

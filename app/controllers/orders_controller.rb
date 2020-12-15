@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
             cart: {
                 id: current_cart ? current_cart.id : "",
                 items: current_cart ? current_cart.items : [],
-                total: current_cart ?  current_cart_total : 0
+                # total: current_cart ?  current_cart_total : 0
             }
         }
         
