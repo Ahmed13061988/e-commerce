@@ -1,8 +1,8 @@
 class CartsController < ApplicationController
     def add_item_to_cart
-        #  item = Item.find(params["item"]["id"]) if params["item"]["id"]
          # adding item to existing cart
          item = Item.find(params["item"]["id"])
+        #  byebug
         if params[:cart_id] != ""
             #  byebug
              current_cart = Cart.find(params[:cart_id])
@@ -36,31 +36,20 @@ class CartsController < ApplicationController
     end
 
     def remove_item_from_cart
-        # item = Item.find(params["item"]["id"])
-        # byebug
-         item = Item.find(params[:item][:itemId])
+        #  byebug
+        current_cart = Cart.find(params[:cart_id])
+        item =current_cart.cart_items.find_by(item_id: params["item"]["itemId"])
+        #  item = Item.find(params[:item][:itemId])
          
-         current_cart = Cart.find(params[:cart_id])
-        #   byebug
+         
+        # #   byebug
        
-        # cart = Cart.find(params[:cart_id])
-        # if current_user 
-        #     if check_session_cookie && check_cart_cookie && params[:cart_id] == current_cart.id
-        #         current_cart.items = current_cart.items.filter { |i| i.id != item.id }
-        #         current_cart.save
-        #     end
-        # elsif check_cart_cookie && params[:cart_id] == current_cart.id
-        #     current_cart.items = current_cart.items.filter { |i| i.id != item.id }
-        #     current_cart.save
-        # end
-       
-     
-        # if check_cart_cookie && params[:cart_id].to_i == current_cart.id
-            # check to see that the cart claimed in cookie is actually referring to the current_cart
-            # current_cart.items = current_cart.items.select { |i| i.id != item.id}
-            #  byebug
-            current_cart.items.delete{|x| x == cookie[0].to_i}
-            current_cart.save
+        # current_cart.items = current_cart.items.select { |i| i.id != item.id}
+        #     #  byebug
+        #  current_cart.items.delete(item)
+        item.destroy 
+
+        # current_cart.save
         # end
 
         render json: {

@@ -1,12 +1,17 @@
 class OrdersController < ApplicationController
     def create
         
-        if check_cart_cookie
-            order = Order.new
-            order.cart = current_cart
+            # byebug 
+            order = Order.create
+            # cart = Cart.find_by(params[:cart_id])
+            current_cart = Cart.find_by(params[:cart_id])
+            params[:cart_id]= current_cart.id
+            order.cart_id = params[:cart_id]
             order.save
+            # order.cart = current_cart
+            # order.save
             setup_new_cart
-        end
+        
         
         render json: {
             cart: {
