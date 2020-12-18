@@ -28,6 +28,27 @@ Item.create(
                 image:"https://images-na.ssl-images-amazon.com/images/I/91QuVskqO1L._SX425_.jpg",
                 price: 15
             )
+             
+            Item.create(
+                name:"Mass Effect",
+                description:"Space Game",
+                image:"https://upload.wikimedia.org/wikipedia/en/e/e8/MassEffect.jpg",
+                price: 3
+            )
+            
+            Item.create(
+                name:"Silent Hill 2",
+                description:"James in Silent Hill to find his dead wife ...",
+                image:"https://images-na.ssl-images-amazon.com/images/I/81ZX5lWqQKL._SY445_.jpg",
+                price: 13
+            )
+            
+            Item.create(
+                name:"Apex:LEGENDS",
+                description:"Battle Royal",
+                image:"https://image.api.playstation.com/vulcan/img/rnd/202011/0410/3X0lGo1TPuFEzDHihXkVDKz2.png",
+                price: 0
+            )
 
 
 

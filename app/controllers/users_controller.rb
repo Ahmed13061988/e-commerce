@@ -19,6 +19,9 @@ class UsersController < ApplicationController
             items: current_cart.items,
             # total: current_cart_total
         }
+          # order: {
+          #   id: order.id? order.id : ""
+          # }
         }
     end
 

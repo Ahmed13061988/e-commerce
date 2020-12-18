@@ -1,0 +1,2 @@
+class OrderComplitedsController < ApplicationController
+end
