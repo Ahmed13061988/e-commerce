@@ -17,7 +17,7 @@ class CartsController < ApplicationController
             current_cart = cart 
             #  byebug
             session[:cart_id] = current_cart.id
-            cookies[:cart_id] = current_cart.id
+            # cookies[:cart_id] = current_cart.id
             # byebug
             params[:cart_id] = current_cart.id
             #  byebug
@@ -27,7 +27,7 @@ class CartsController < ApplicationController
         end 
 
         render json: {
-            cart: CartSerializer.new(current_cart)
+            cart: CartSerializer.new(current_cart), total: current_cart_total 
             
         }  
         # , total: current_cart_total 
@@ -56,7 +56,7 @@ class CartsController < ApplicationController
             cart: {
                 id: current_cart.id,
                 items: current_cart.items,
-                #  total: current_cart_total
+                 total: current_cart_total
             }
         }  
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_07_220357) do
+ActiveRecord::Schema.define(version: 2020_12_18_002058) do
 
   create_table "cart_items", force: :cascade do |t|
     t.integer "cart_id"
@@ -32,6 +32,11 @@ ActiveRecord::Schema.define(version: 2020_12_07_220357) do
     t.string "category"
     t.string "image"
     t.integer "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "order_compliteds", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

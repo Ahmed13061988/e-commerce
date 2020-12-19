@@ -9,26 +9,26 @@ class ApplicationController < ActionController::API
         current_cart = Cart.find(session[:cart_id]) if session[:cart_id] #
     end
 
-    def check_session_cookie
-        cookie_session_id = cookies.encrypted[:_session_id]["session_id"]
-        cookie_user_id = cookies.encrypted[:_session_id]["user_id"]
+    # def check_session_cookie
+    #     cookie_session_id = cookies.encrypted[:_session_id]["session_id"]
+    #     cookie_user_id = cookies.encrypted[:_session_id]["user_id"]
 
-        true if cookie_session_id == session.id && cookie_user_id == current_user.id   
-    end
+    #     true if cookie_session_id == session.id && cookie_user_id == current_user.id   
+    # end
 
-    def check_cart_cookie
-        cookie_cart_id = cookies["cart_id"]
+    # def check_cart_cookie
+    #     cookie_cart_id = cookies["cart_id"]
         
-        true if cookie_cart_id == session[:cart_id].to_s
-    end
+    #     true if cookie_cart_id == session[:cart_id].to_s
+    # end
     
 
-    # def current_cart_total
-    #  # byebug
-    #   current_cart = Cart.find(params[:cart_id]) 
-    #   item_prices = current_cart.items.map { |i| i.price }
-    #   item_prices.reduce(0) { |sum, price| sum + price }
-    # end
+    def current_cart_total
+        # byebug
+      current_cart = Cart.find(params[:cart_id]) 
+      item_prices = current_cart.items.map { |i| i.price }
+      item_prices.reduce(0) { |sum, price| sum + price }
+    end
 
     def setup_new_cart
             new_cart = Cart.create 
