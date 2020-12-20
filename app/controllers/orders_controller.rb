@@ -21,7 +21,8 @@ class OrdersController < ApplicationController
         render json: {
             order: {
                 id:  current_cart,
-                items: a 
+                items: a,
+                total: current_cart ?  current_cart_total : 0
                  } }
         
     end
